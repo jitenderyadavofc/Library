@@ -8,7 +8,7 @@ terraform {
         source = "hashicorp/aws"
         version = ">=4.9.0, <5.0.0"
 
-        configuration_aliases = [ aws.account_prod ]
+        # configuration_aliases = [ aws.account_prod ]
 
     }
   } 
