@@ -1,5 +1,4 @@
 
-
 resource "aws_glue_catalog_database" "glue_catalog_db" {
 
     name = var.catalog_db_name
@@ -34,28 +33,7 @@ resource "aws_glue_crawler" "glue_crawler" {
         tag_key=>tag_value  
      })   
   
-  depends_on = [ aws_glue_catalog_database.glue_catalog_db ]
+   depends_on = [ aws_glue_catalog_database.glue_catalog_db ]
 }
 
 
-resource "aws_glue_job" "glue_job" {
-
-    name = var.glue_job_name
-    role_arn = var.glue_role_arn
-    max_capacity = var.max_capacity
-
-    command {
-      name = var.command_name
-      script_location = var.job_script_location
-    }
-
-    tags=merge(
-    {"Name"=var.glue_job_name},
-    {
-     for tag_key, tag_value in var.tags:
-        tag_key=>tag_value  
-     })   
-
-     depends_on = [ aws_glue_crawler.glue_crawler ]
-  
-}

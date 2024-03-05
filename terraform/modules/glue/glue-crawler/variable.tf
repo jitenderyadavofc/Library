@@ -30,24 +30,4 @@ variable "tags" {
 }
 
 
-variable "job_script_location" {
-  description = "Aws glue crawler name"
-  type        = string
 
-}
-
-variable "glue_job_name" {
-  description = "Aws glue job name"
-  type        = string
-
-}
-
-variable "max_capacity" {
-  description = "Aws glue job max capacity DPU"
-  type        = number
-
-}
-
-variable "command_name" {
-  
-}
